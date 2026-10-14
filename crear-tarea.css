@@ -1,0 +1,21 @@
+body {
+  margin: 25px;
+  background-color:;
+}
+
+.progreso-botones {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.progreso-botones button {
+  width: 130px;
+  flex: 0 0 130px;
+}
+
+.btn-primary {
+  width: 130px;
+  display: flex;
+  flex-wrap: nowrap;
+}
