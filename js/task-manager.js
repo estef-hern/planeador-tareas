@@ -153,4 +153,64 @@ class TaskManager {
 
     return columna;
   }
+
+  
+seedExampleTasks() {
+  // No agrega ejemplos si ya hay tareas guardadas
+  if (this.tasks.length > 0) {
+    return;
+  }
+
+  const tareasEjemplo = [
+    {
+      nombre: "Preparación presentación",
+      descripcion: "Preparar las diapositivas para la reunión semanal.",
+      asignadoA: "María Lira",
+      fechaDeEntrega: "2026-11-02",
+      estado: "EN PROCESO",
+      categoria: "trabajo",
+      usuario: "maria.lira",
+    },
+    {
+      nombre: "Entregar informe mensual",
+      descripcion: "Revisar los resultados y entregar el informe del mes.",
+      asignadoA: "Lino Limera",
+      fechaDeEntrega: "2026-11-05",
+      estado: "POR HACER",
+      categoria: "trabajo",
+      usuario: "lino.limera",
+    },
+    {
+      nombre: "Organizar reunión familiar",
+      descripcion: "Coordinar el horario y los detalles de la reunión.",
+      asignadoA: "Ani Torres",
+      fechaDeEntrega: "2026-11-08",
+      estado: "REVISIÓN",
+      categoria: "familia",
+      usuario: "ani.torres",
+    },
+    {
+      nombre: "Completar curso de JavaScript",
+      descripcion: "Finalizar los ejercicios del módulo de funciones.",
+      asignadoA: "Luis Robles",
+      fechaDeEntrega: "2026-11-12",
+      estado: "POR HACER",
+      categoria: "personal",
+      usuario: "luis.robles",
+    },
+    {
+      nombre: "Actualizar página web",
+      descripcion: "Corregir estilos y revisar el diseño adaptable.",
+      asignadoA: "Sofía Ramírez",
+      fechaDeEntrega: "2026-10-30",
+      estado: "HECHO",
+      categoria: "trabajo",
+      usuario: "sofia.ramirez",
+    },
+  ];
+
+  tareasEjemplo.forEach((tarea) => this.addTask(tarea));
+}
+
+
 }

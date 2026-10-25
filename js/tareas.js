@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const taskManager = new TaskManager();
+  taskManager.seedExampleTasks();
 
   function renderTasks() {
     const tareas = taskManager.getAllTasks();
