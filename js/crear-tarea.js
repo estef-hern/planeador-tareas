@@ -8,6 +8,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // TaskManager está definido en task-manager.js
   const taskManager = new TaskManager();
+  const campoFecha = document.getElementById("fechaSimple");
+
+  function obtenerFechaHoyLocal() {
+    const ahora = new Date();
+    const anio = ahora.getFullYear();
+    const mes = String(ahora.getMonth() + 1).padStart(2, "0");
+    const dia = String(ahora.getDate()).padStart(2, "0");
+    return `${anio}-${mes}-${dia}`;
+  }
+
+  function actualizarFechaMinima() {
+    if (campoFecha) {
+      campoFecha.min = obtenerFechaHoyLocal();
+    }
+  }
+
+  // Fijar fecha mínima al cargar y si la pestaña vuelve a activarse
+  actualizarFechaMinima();
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      actualizarFechaMinima();
+    }
+  });
 
   // VALIDAR FORMULARIO
 
@@ -115,11 +138,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Validar fecha
+    const hoyLocal = obtenerFechaHoyLocal();
     if (fecha.value === "") {
       mostrarError(
         fecha,
         errorFecha,
         "Debes seleccionar una fecha de entrega.",
+      );
+    } else if (fecha.value < hoyLocal) {
+      mostrarError(
+        fecha,
+        errorFecha,
+        "La fecha de entrega no puede ser anterior a hoy.",
       );
     }
 
@@ -225,6 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 6. Limpiar el formulario
       formulario.reset();
+      actualizarFechaMinima();
 
       // Quitar estilos de campos inválidos
       document.querySelectorAll(".campo-invalido").forEach((campo) => {

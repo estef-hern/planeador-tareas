@@ -1,0 +1,474 @@
+/* BOTONES DEL ENCABEZADO */
+.btn-crear-tarea,
+.btn-papelera {
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+/* Crear tarea */
+
+.btn-crear-tarea {
+  background-color: #69bc6a;
+  color: white;
+  border: 1px solid #69bc6a;
+}
+
+.btn-crear-tarea:hover {
+  background-color: #55a957;
+  border-color: #55a957;
+  color: white;
+}
+
+/* Papelera */
+
+.btn-papelera {
+  background-color: #fcebe6;
+  color: #a65e4d;
+  border: 1px solid transparent;
+}
+
+.btn-papelera:hover {
+  background-color: #eaa490;
+  color: white;
+}
+
+/* RECUADROS DE RESUMEN */
+
+.resumen-tarea {
+  border: none;
+  border-radius: 16px;
+  padding: 15px 10px;
+  min-height: 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resumen-tarea:hover {
+  transform: translateY(-3px);
+}
+
+.resumen-tarea:focus-visible {
+  outline: 3px solid var(--turquesa);
+  outline-offset: 3px;
+}
+
+.resumen-pendientes {
+  background-color: #e9f2f0;
+  color: var(--verde-oscuro);
+}
+
+.resumen-pendientes:hover {
+  background-color: #dcebe7;
+}
+
+.resumen-completadas {
+  background-color: #e9f4e9;
+  color: #368a4c;
+}
+
+.resumen-completadas:hover {
+  background-color: #dceedd;
+}
+
+.resumen-icono {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.resumen-numero {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.resumen-titulo {
+  font-weight: 700;
+  margin: 0;
+}
+
+.resumen-tarea small {
+  font-size: 12px;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+/* CONTENEDOR DE FILTROS */
+
+.filtros-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* FILTROS TIPO PÍLDORA */
+
+.filtro-btn,
+.filtro-tiempo {
+  border-radius: 10px;
+  padding: 7px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #f0f4f3;
+  color: var(--verde-oscuro);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.filtro-btn:hover,
+.filtro-tiempo:hover {
+  background-color: #dcebe7;
+  color: var(--verde-oscuro);
+}
+
+/* Filtro activo */
+
+.filtro-btn.active,
+.filtro-tiempo.active {
+  background-color: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+  color: white;
+}
+
+/* Filtro vencidas */
+
+.filtro-vencidas {
+  color: #a65e4d;
+  background-color: #fcebe6;
+}
+
+.filtro-vencidas:hover {
+  background-color: #f7dad1;
+  color: #a65e4d;
+}
+
+.filtro-vencidas.active {
+  background-color: #a65e4d;
+  border-color: #a65e4d;
+  color: white;
+}
+
+/* BOTONES DE ACCIÓN */
+
+.btn-accion {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background-color: #f0f4f3;
+  color: var(--verde-azulado);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-ver-tarea:hover {
+  background-color: #dcebe7;
+  color: var(--verde-oscuro);
+}
+
+.btn-editar-tarea {
+  color: #168d96;
+}
+
+.btn-editar-tarea:hover {
+  background-color: #81b8a9 !important;
+  border-color: #81b8a9 !important;
+  color: #81b8a9 !important;
+}
+
+.btn-accion-eliminar {
+  background-color: #fcebe6;
+  color: #b66b59;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+}
+
+.btn-accion-eliminar:hover {
+  background-color: var(--coral);
+  color: white;
+}
+
+.card {
+  cursor: pointer;
+  border-radius: 25x;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.task-card {
+  height: 360px !important;
+  min-height: 360px;
+  max-height: 360px;
+  overflow: hidden;
+}
+
+/* Distribución interna */
+.task-card-body {
+  overflow: hidden;
+}
+
+/* Título: máximo 2 líneas */
+.titulo-tarea {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  min-height: 2.8em;
+  max-height: 2.8em;
+  color: #2c474a;
+}
+
+/* Descripción: máximo 2 líneas */
+.descripcion-tarea {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+  min-height: 3em;
+  max-height: 3em;
+}
+
+/* Asignados */
+.asignados-tarea {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 24px;
+}
+
+/* Evitar que los botones se compriman */
+.task-card .done-button,
+.task-card .btn-outline-danger {
+  flex-shrink: 0;
+}
+
+/* Espacio entre los botones de las tarjetas */
+.task-card .done-button {
+  margin-bottom: 6px;
+}
+
+.task-card .btn-outline-danger {
+  margin-top: 6px;
+}
+
+/* CAMBIAR */
+/* BOTÓN VER - OJO */
+.btn-ver-tarea:hover {
+  background-color: #198754;
+  border-color: #198754;
+  color: #ffffff;
+}
+
+/* BOTÓN EDITAR - LÁPIZ */
+.btn-editar-tarea:hover {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+/* ESTILOS GENERALES DE LOS MODALES */
+
+#modalVerTarea .modal-content,
+#modalEditarTarea .modal-content {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(16, 81, 87, 0.15);
+}
+
+/* ENCABEZADO */
+
+#modalVerTarea .modal-header,
+#modalEditarTarea .modal-header {
+  background-color: #105157;
+  color: white;
+  padding: 20px 24px;
+  border-bottom: none;
+}
+
+#modalVerTarea .modal-title,
+#modalEditarTarea .modal-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#modalVerTarea .btn-close,
+#modalEditarTarea .btn-close {
+  filter: invert(1);
+  opacity: 0.85;
+}
+
+#modalVerTarea .btn-close:hover,
+#modalEditarTarea .btn-close:hover {
+  opacity: 1;
+}
+
+/* CUERPO */
+
+#modalVerTarea .modal-body,
+#modalEditarTarea .modal-body {
+  padding: 24px;
+  background-color: #ffffff;
+}
+
+/* MODAL VER TAREA */
+
+#modalVerTarea #verNombre {
+  color: #105157;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#modalVerTarea #verDescripcion {
+  color: #6c7d7e;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+#modalVerTarea .modal-body hr {
+  border-color: #e3ebe9;
+  opacity: 1;
+  margin: 18px 0;
+}
+
+#modalVerTarea .modal-body p:not(#verDescripcion) {
+  font-size: 14px;
+  color: #526768;
+  padding: 11px 12px;
+  margin-bottom: 9px;
+  background-color: #f4f8f7;
+  border-radius: 8px;
+}
+
+#modalVerTarea .modal-body strong {
+  color: #105157;
+  font-weight: 600;
+}
+
+/* MODAL EDITAR TAREA */
+
+#modalEditarTarea .form-label {
+  color: #105157;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+#modalEditarTarea .form-control,
+#modalEditarTarea .form-select {
+  border: 1px solid #dce7e5;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #344d4f;
+  background-color: #fafcfb;
+  transition: all 0.2s ease;
+}
+
+#modalEditarTarea .form-control:focus,
+#modalEditarTarea .form-select:focus {
+  border-color: #0ac0c7;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(10, 192, 199, 0.12);
+}
+
+#modalEditarTarea textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+#modalEditarTarea .mb-3 {
+  margin-bottom: 18px !important;
+}
+
+/* BOTONES */
+
+#modalEditarTarea button[type="submit"] {
+  background-color: #69bc6a;
+  border: 1px solid #69bc6a;
+  color: white;
+  border-radius: 8px;
+  padding: 11px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+#modalEditarTarea button[type="submit"]:hover {
+  background-color: #55a957;
+  border-color: #55a957;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 576px) {
+  #modalVerTarea .modal-body,
+  #modalEditarTarea .modal-body {
+    padding: 18px;
+  }
+
+  #modalVerTarea .modal-header,
+  #modalEditarTarea .modal-header {
+    padding: 16px 18px;
+  }
+
+  #modalVerTarea #verNombre {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filtros-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #filtros-tareas,
+  #filtros-tiempo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .resumen-tarea {
+    min-height: 125px;
+  }
+
+  .resumen-numero {
+    font-size: 25px;
+  }
+
+  .filtro-btn,
+  .filtro-tiempo {
+    font-size: 12px;
+    padding: 6px 11px;
+  }
+}

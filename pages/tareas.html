@@ -8,6 +8,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+/>
+
     <link rel="stylesheet" href="../css/tareas.css" />
   </head>
   <body>
@@ -20,17 +25,257 @@
           <p class="text-secondary mb-0">Aquí encontrarás todas tus tareas.</p>
         </div>
 
-        <a href="crear-tarea.html" class="btn btn-success">+ Crear tarea </a>
+        <div class="d-flex flex-wrap gap-2">
+  <a href="papelera.html" class="btn btn-papelera">
+    <i class="bi bi-trash3 me-1"></i>
+    Papelera
+  </a>
+
+  <a href="crear-tarea.html" class="btn btn-crear-tarea">
+    <i class="bi bi-plus-lg me-1"></i>
+    Crear tarea
+  </a>
+</div>
       </header>
 
-      <section
-        id="contenedor-tareas"
-        class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3"
-        aria-label="Listado de tareas"
-      >
-        <!-- js pondrá las tarjetas aquí -->
-      </section>
+      
+<!-- RESUMEN DE TAREAS -->
+<div class="row g-3 mb-4">
+
+  <!-- PENDIENTES -->
+  <div class="col-6">
+    <button
+      type="button"
+      id="btn-pendientes"
+      class="resumen-tarea resumen-pendientes w-100">
+
+      <i class="bi bi-clipboard-check resumen-icono"></i>
+
+      <h3 id="total-pendientes" class="resumen-numero">0</h3>
+
+      <h6 class="resumen-titulo">Pendientes</h6>
+
+      <small>Ver tareas</small>
+
+    </button>
+  </div>
+
+  <!-- COMPLETADAS -->
+  <div class="col-6">
+    <button
+      type="button"
+      id="btn-completadas"
+      class="resumen-tarea resumen-completadas w-100">
+
+      <i class="bi bi-check-circle resumen-icono"></i>
+
+      <h3 id="total-completadas" class="resumen-numero">0</h3>
+
+      <h6 class="resumen-titulo">Completadas</h6>
+
+      <small>Ver tareas</small>
+
+    </button>
+  </div>
+
+</div>
+
+
+      <!-- TAREAS PENDIENTES -->
+<section class="mb-5">
+
+  <h2 class="h4 fw-bold mb-3">
+    <i class="bi bi-list-task me-2"></i>
+    Mis tareas pendientes
+  </h2>
+
+  <!-- BOTONES DE FILTRO-->
+
+<div class="filtros-wrapper mb-4">
+
+  <!-- FILTROS DE ESTADO -->
+  <div class="d-flex flex-wrap gap-2" id="filtros-tareas">
+
+    <button type="button"
+      class="btn filtro-btn active"
+      data-filtro="TODAS">
+      Todas
+    </button>
+
+    <button type="button"
+      class="btn filtro-btn"
+      data-filtro="POR HACER">
+      Sin comenzar
+    </button>
+
+    <button type="button"
+      class="btn filtro-btn"
+      data-filtro="EN PROCESO">
+      En curso
+    </button>
+
+    <button type="button"
+      class="btn filtro-btn"
+      data-filtro="REVISIÓN">
+      Revisión
+    </button>
+
+    <button type="button"
+      class="btn filtro-btn filtro-vencidas"
+      data-filtro="VENCIDA">
+      Vencidas
+    </button>
+
+  </div>
+
+  <!-- FILTROS DE TIEMPO -->
+  <div class="d-flex flex-wrap gap-2" id="filtros-tiempo">
+
+    <button type="button"
+      class="btn filtro-tiempo active"
+      data-tiempo="TODOS">
+      Todos los plazos
+    </button>
+
+    <button type="button"
+      class="btn filtro-tiempo"
+      data-tiempo="HOY">
+      Hoy
+    </button>
+
+    <button type="button"
+      class="btn filtro-tiempo"
+      data-tiempo="SEMANA">
+      Esta semana
+    </button>
+
+    <button type="button"
+      class="btn filtro-tiempo"
+      data-tiempo="MES">
+      Este mes
+    </button>
+
+  </div>
+
+</div>
+
+
+
+  <!-- CONTENEDOR DE TAREAS -->
+  <div
+    id="contenedor-tareas"
+    class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3"
+    aria-label="Listado de tareas pendientes"
+  >
+    <!-- JS pondrá las tarjetas aquí -->
+  </div>
+
+</section>
+
+
+<!-- TAREAS COMPLETADAS -->
+<section class="mt-5">
+  <h2 class="h4 fw-bold mb-3">
+    <i class="bi bi-check-circle me-2 text-success"></i>
+    Tareas completadas
+  </h2>
+
+  <div
+    id="contenedor-completadas"
+    class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3"
+    aria-label="Listado de tareas completadas"
+  >
+    <!-- JS pondrá las tareas completadas aquí -->
+  </div>
+</section>
+
     </main>
+
+    <!-- MODAL PARA VISUALIZAR TAREA -->
+<div class="modal fade" id="modalVerTarea" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Detalles de la tarea</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <h4 id="verNombre" class="fw-bold"></h4>
+        <p id="verDescripcion" class="text-secondary"></p>
+        <hr>
+        <p><strong>Asignado a:</strong> <span id="verAsignado"></span></p>
+        <p><strong>Fecha de entrega:</strong> <span id="verFecha"></span></p>
+        <p><strong>Estado:</strong> <span id="verEstado"></span></p>
+        <p><strong>Categoría:</strong> <span id="verCategoria"></span></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalEditarTarea" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Editar tarea</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="formEditarTarea">
+
+          <input type="hidden" id="editarId">
+
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" id="editarNombre" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <textarea id="editarDescripcion" class="form-control" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Asignado a</label>
+            <input type="text" id="editarAsignado" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Fecha de entrega</label>
+            <input type="date" id="editarFecha" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select id="editarEstado" class="form-select" required>
+              <option value="POR HACER">Por hacer</option>
+              <option value="EN PROCESO">En proceso</option>
+              <option value="REVISIÓN">Revisión</option>
+              <option value="HECHO">Hecho</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Categoría</label>
+            <input type="text" id="editarCategoria" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success w-100">
+            Guardar cambios
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/task-manager.js"></script>

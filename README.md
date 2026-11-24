@@ -4,7 +4,7 @@ Aplicación web para gestionar tareas, con el objetivo de facilitar la organizac
 
 ## **Consideraciones importantes**
 
-Para la entrega del Sprint 2 **se debe usar los archivos de “crear-tarea” y “tareas”, no el index**, ya que para la visión de la creación de este planificador no se contempla que las tareas figuren en el index. Cuando se desarrolle el dashboard, habrá opciones que nos permitan visualizar todas las tareas creadas.
+Para la entrega del Sprint 3 **se debe usar los archivos de “crear-tarea” y “tareas”, no el index**, ya que para la visión de la creación de este planificador no se contempla que las tareas figuren en el index. Cuando se desarrolle el dashboard, habrá opciones que nos permitan visualizar todas las tareas creadas.
 
 **Características**
 Crear tareas: registrar nuevas tareas mediante un formulario.

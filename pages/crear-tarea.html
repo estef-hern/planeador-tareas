@@ -1,15 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear Tarea</title>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/crear-tarea.css" />
   </head>
+
   <body>
     <div class="formulario-container">
       <form id="formularioTarea" novalidate>
@@ -54,7 +56,6 @@
 
           <div class="campo-usuario">
             <label for="inlineFormInputGroup">Buscar por usuario</label>
-
             <div class="input-group">
               <span class="input-group-text">@</span>
               <input
@@ -89,9 +90,9 @@
               id="sinComenzar"
               value="sin_comenzar"
             />
-            <label class="btn btn-outline-secondary" for="sinComenzar"
-              >Sin comenzar</label
-            >
+            <label class="btn btn-outline-secondary" for="sinComenzar">
+              Sin comenzar
+            </label>
 
             <input
               type="radio"
@@ -100,7 +101,7 @@
               id="enCurso"
               value="en_curso"
             />
-            <label class="btn btn-outline-info" for="enCurso">En curso</label>
+            <label class="btn btn-outline-info" for="enCurso"> En curso </label>
 
             <input
               type="radio"
@@ -109,9 +110,9 @@
               id="revision"
               value="revision"
             />
-            <label class="btn btn-outline-warning" for="revision"
-              >Revisión</label
-            >
+            <label class="btn btn-outline-warning" for="revision">
+              Revisión
+            </label>
 
             <input
               type="radio"
@@ -120,15 +121,17 @@
               id="completado"
               value="completado"
             />
-            <label class="btn btn-outline-success" for="completado"
-              >Completado</label
-            >
+            <label class="btn btn-outline-success" for="completado">
+              Completado
+            </label>
           </div>
           <div class="error-message" id="errorProgreso"></div>
         </div>
 
         <div class="form-group col-md-6">
-          <label for="fechaSimple" class="form-label">Fecha de entrega *</label>
+          <label for="fechaSimple" class="form-label">
+            Fecha de entrega *
+          </label>
           <input
             type="date"
             class="form-control"
@@ -141,6 +144,7 @@
         <button type="submit" class="btn btn-primary">Crear tarea</button>
       </form>
     </div>
+
     <div
       class="modal fade"
       id="modalTareaCreada"
@@ -152,7 +156,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalTareaCreadaLabel">¡Hecho!</h5>
-
             <button
               type="button"
               class="btn-close"
